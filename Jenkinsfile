@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     tools {
-        sonarQube 'sonarqube'
+        sonarScanner 'sonar-scanner'
     }
 
     stages {
 
         stage('Checkout') {
             steps {
-                git 'https://github.com/AmritRaj7461/DevOps.git'
+                checkout scm
             }
         }
 
@@ -26,7 +26,6 @@ pipeline {
                     sonar-scanner \
                     -Dsonar.projectKey=my-frontend-app \
                     -Dsonar.sources=. \
-                    -Dsonar.host.url=http://15.206.92.125:9000 \
                     -Dsonar.login=$SONAR_AUTH_TOKEN
                     '''
                 }
