@@ -19,11 +19,11 @@ pipeline {
             steps {
                 withSonarQubeEnv('sonarqube') {
                     sh '''
-                    sonar-scanner \
-                    -Dsonar.projectKey=my-frontend-app \
-                    -Dsonar.sources=. \
-                    -Dsonar.login=$SONAR_AUTH_TOKEN
-                    '''
+/opt/sonar-scanner/bin/sonar-scanner \
+-Dsonar.projectKey=my-frontend-app \
+-Dsonar.sources=. \
+-Dsonar.login=$SONAR_AUTH_TOKEN
+'''
                 }
             }
         }
